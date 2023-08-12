@@ -115,9 +115,9 @@ class Provider(object):
                     # Check if the name matches and add the device.
                     found.append(device)
             else:
-                # Check if the advertised UUIDs have at least the expected UUIDs.
+                # Check if the advertised UUIDs matches one of the expected UUIDs.
                 actual = set(device.advertised)
-                if actual >= expected:
+                if len(actual.intersection(expected)):
                     found.append(device)
         return found
 
